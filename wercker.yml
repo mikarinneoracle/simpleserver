@@ -16,3 +16,8 @@ deploy:
       working-dir: /pipeline/source
       cmd: npm start
       registry: https://fra.ocir.io
+  after-steps:
+    - script:
+        name: sed-image-tag
+        code: |
+          sed -i 's/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g' ./kustomize/deployemnt.yaml
