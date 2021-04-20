@@ -1,7 +1,6 @@
 box:
     id: node
     tag: 6.10
-    registry: https://fra.ocir.io
 
 build:
   steps:
