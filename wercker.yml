@@ -11,7 +11,7 @@ deploy:
       username: $OCIR_USERNAME
       password: $OCIR_PASSWORD
       tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-      repository: $OCIR_USERNAME/simpleserver
+      repository: fra.ocir.io/sefinland/mrinne/simpleserver
       ports: "3000"
       cmd: npm start
       registry: https://fra.ocir.io
