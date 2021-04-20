@@ -22,7 +22,7 @@ spec:
         app: simpleserver
     spec:
       containers:
-      - image: fra.ocir.io/sefinland/mrinne/simpleserver:1.0
+      - image: fra.ocir.io/sefinland/mrinne/simpleserver:1618902084
         imagePullPolicy: Always
         name: simpleserver
         ports:
