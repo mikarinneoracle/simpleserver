@@ -16,12 +16,13 @@ deploy:
       working-dir: /pipeline/source
       cmd: npm start
       registry: https://fra.ocir.io
-  after-steps:
+sed:
+  steps:
     - script:
         name: sed-image-tag
         code: |
           git remote add backtorepo git@github.com:mikarinneoracle/simpleserver.git
-          sed -i 's/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g' ./kustomize/deployemnt.yaml
-          git add ./kustomize/deployemnt.yaml
+          sed -i 's/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g' ./kustomize/deployment.yaml
+          git add ./kustomize/deployment.yaml
           git commit -m 'tag changed'
           git push backtorepo master
