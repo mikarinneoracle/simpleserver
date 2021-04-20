@@ -1,0 +1,18 @@
+box:
+    id: node
+    tag: 6.10
+    registry: https://fra.ocir.io
+
+build:
+  steps:
+    - npm-install
+deploy:
+  steps:
+    - internal/docker-push:
+      username: $OCIR_USERNAME
+      password: $OCIR_PASSWORD
+      tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+      repository: $OCIR_USERNAME/simpleserver
+      ports: "3000"
+      cmd: npm start
+      registry: https://fra.ocir.io
