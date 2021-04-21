@@ -21,6 +21,8 @@ sed:
     - script:
         name: sed-image-tag
         code: |
+          git config --global user.email "mika.rinne@oracle.com"
+          git config --global user.name "Mika Rinne"
           git remote add backtorepo git@github.com:mikarinneoracle/simpleserver.git
           sed -i 's/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g' ./kustomize/deployment.yaml
           git add ./kustomize/deployment.yaml
