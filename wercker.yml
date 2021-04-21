@@ -27,9 +27,10 @@ deploy:
         code: |
           git config --global user.email "mika.rinne@oracle.com"
           git config --global user.name "Mika Rinne"
+          git pull origin master
           sed -i "s/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g" ./kustomize/deployment.yaml
           echo -i "s/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g" ./kustomize/deployment.yaml
           git status
-          git commit -m 'image tag '.$WERCKER_MAIN_PIPELINE_STARTED --all
+          git commit -m 'image tag '$WERCKER_MAIN_PIPELINE_STARTED --all
           git status
           git push origin master
