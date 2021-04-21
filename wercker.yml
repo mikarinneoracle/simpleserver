@@ -1,6 +1,9 @@
 box:
-    id: node
-    tag: 6.10
+    #id: node
+    #tag: 6.10
+    id: sefinland/mrinne/simpleserver
+    tag: 1618996285
+    repository: fra.ocir.io
 
 build:
   steps:
