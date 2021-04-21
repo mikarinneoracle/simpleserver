@@ -16,8 +16,7 @@ deploy:
       working-dir: /pipeline/source
       cmd: npm start
       registry: https://fra.ocir.io
-sed:
-  steps:
+  after-steps:
     - add-to-known_hosts:
         hostname: github.com
         fingerprint: 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48
@@ -28,7 +27,6 @@ sed:
         code: |
           git config --global user.email "mika.rinne@oracle.com"
           git config --global user.name "Mika Rinne"
-          git remote add repo git@github.com:mikarinneoracle/simpleserver.git
           sed -i "s/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g" ./kustomize/deployment.yaml
           echo -i "s/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g" ./kustomize/deployment.yaml
           git status
@@ -36,4 +34,4 @@ sed:
           git status
           git commit -m 'tag changed'
           git status
-          git push -u repo master
+          git push -u origin master
