@@ -30,8 +30,6 @@ deploy:
           sed -i "s/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g" ./kustomize/deployment.yaml
           echo -i "s/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g" ./kustomize/deployment.yaml
           git status
-          git add -A
-          git status
-          git commit -m 'tag changed'
+          git commit -a
           git status
           git push -u origin master
