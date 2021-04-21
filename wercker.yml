@@ -3,6 +3,8 @@ box:
     #tag: 6.10
     id: sefinland/mrinne/simpleserver
     tag: 1618996285
+    username: $OCIR_USERNAME
+    password: $OCIR_PASSWORD
     repository: fra.ocir.io
 
 build:
