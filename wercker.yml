@@ -5,7 +5,7 @@ box:
     tag: 1618996285
     username: $OCIR_USERNAME
     password: $OCIR_PASSWORD
-    repository: fra.ocir.io
+    registry: https://fra.ocir.io
 
 build:
   steps:
