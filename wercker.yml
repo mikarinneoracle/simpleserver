@@ -23,7 +23,7 @@ sed:
         code: |
           git config --global user.email "mika.rinne@oracle.com"
           git config --global user.name "Mika Rinne"
-          git remote add backtorepo $GITHUB_USERNAME:$GITHUB_PASSWORD@ghttps://github.com/mikarinneoracle/simpleserver.git
+          git remote add backtorepo $GITHUB_USERNAME:$GITHUB_PASSWORD@https://github.com/mikarinneoracle/simpleserver.git
           sed -i 's/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g' ./kustomize/deployment.yaml
           git add ./kustomize/deployment.yaml
           git commit -m 'tag changed'
