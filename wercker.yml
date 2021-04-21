@@ -34,7 +34,9 @@ deploy:
         code: |
           git config --global user.email "mika.rinne@oracle.com"
           git config --global user.name "Mika Rinne"
-          git remote add infra git@github.com:mikarinneoracle/oke-infra-simpleserver.git
+          git clone infra git@github.com:mikarinneoracle/oke-infra-simpleserver.git infra
+          cd infra
+          git remote add config git@github.com:mikarinneoracle/oke-infra-simpleserver.git
           git checkout main
           sed -i "s/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g" ./kustomize/deployment.yaml
           git status
@@ -42,7 +44,7 @@ deploy:
           git status
           git commit -m 'image tag '$WERCKER_MAIN_PIPELINE_STARTED
           git status
-          git push infra main
+          git push config main
           
     #- script:
     #    name: sed-image-tag
