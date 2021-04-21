@@ -34,7 +34,7 @@ deploy:
         code: |
           git config --global user.email "mika.rinne@oracle.com"
           git config --global user.name "Mika Rinne"
-          git clone infra git@github.com:mikarinneoracle/oke-infra-simpleserver.git infra
+          git clone git@github.com:mikarinneoracle/oke-infra-simpleserver.git infra
           cd infra
           git remote add config git@github.com:mikarinneoracle/oke-infra-simpleserver.git
           git checkout main
