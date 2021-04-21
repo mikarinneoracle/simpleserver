@@ -28,8 +28,9 @@ sed:
         code: |
           git config --global user.email "mika.rinne@oracle.com"
           git config --global user.name "Mika Rinne"
-          git remote add backtorepo git@github.com:mikarinneoracle/simpleserver.git
-          sed -i 's/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g' ./kustomize/deployment.yaml
-          git add ./kustomize/deployment.yaml
+          git remote add origin git@github.com:mikarinneoracle/simpleserver.git
+          sed -i "s/simpleserver:.*#TAG/simpleserver:$WERCKER_MAIN_PIPELINE_STARTED #TAG/g" ./kustomize/deployment.yaml
+          git status
+          git add kustomize/deployment.yaml
           git commit -m 'tag changed'
-          git push -u backtorepo master
+          git push -u origin master
